@@ -139,7 +139,7 @@ var TIERS=[{lb:'Free',cost:0,prof:2,drop:0,tgt:0,cls:'t-free',mut:[]},{lb:'T-1',
 
 var MUTATORS=[{n:'Harvester',d:'When dealing damage, this enemy regenerates Armor and Health by a percentage of your maximum Armor. Can overheal.',starts:'T-1+',global:false},{n:'Unyielding',d:'All enemies become immune to crowd control effects while significantly damaged.',starts:'T-2+',global:true},{n:'Suppressor',d:'When damaged, this enemy starts to charge an EMP blast. When fully charged, he unleashes it, disrupting everything in the area.',starts:'T-3+',global:false},{n:'Anchor',d:'This enemy has damage resistance and fires incendiary ammo as long as he has any allies around him.',starts:'T-5+',global:false},{n:'Hot Foot',d:'If you stay in the same spot for too long, a charge counter begins to fill. When it reaches maximum, you are Shocked and take damage.',starts:'T-6+',global:true},{n:'Aid Specialist',d:'This enemy periodically Repairs the Armor of all allies around him, if they are badly damaged.',starts:'T-7+',global:false}];
 
-var DEFAULT=[{slot:1,name:'The Art Museum',daily_loot:'Alps Summit Armament'},{slot:2,name:'Manning National Zoo',daily_loot:'Chameleon'},{slot:3,name:'Camp White Oak',daily_loot:'Merciless'},{slot:4,name:'The Pentagon',daily_loot:'Liberty'},{slot:5,name:'DARPA Research Labs',daily_loot:'Dodge City Holster'}];
+var DEFAULT=[{slot:1,name:'The Art Museum',daily_loot:'-'},{slot:2,name:'Manning National Zoo',daily_loot:'-'},{slot:3,name:'Camp White Oak',daily_loot:'-'},{slot:4,name:'The Pentagon',daily_loot:'-'},{slot:5,name:'DARPA Research Labs',daily_loot:'-'}];
 
 var missions=DEFAULT.map(function(m){return Object.assign({},m);});
 var syncStatus='loading',editing=null,awaitingPw=null,pwError=false;
