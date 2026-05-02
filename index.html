@@ -112,25 +112,25 @@ html,body{min-height:100%;background:#0a0e14;font-family:var(--font-ui);color:va
 /* BRAND SETS */
 
 /* Brand filter sidebar */
-.brand-layout{display:grid;grid-template-columns:180px 1fr;gap:14px;align-items:start}
-@media(max-width:640px){.brand-layout{grid-template-columns:1fr}}
-.brand-filters{background:var(--div-surface);border:1px solid var(--div-border);border-radius:3px;padding:.75rem;position:sticky;top:8px}
-.filter-title{font-family:var(--font-hud);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:.625rem;padding-bottom:.4rem;border-bottom:1px solid var(--div-border)}
-.filter-section{margin-bottom:.75rem}
-.filter-section-label{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.375rem}
-.filter-section-label.blue{color:#7ab3d4}
-.filter-section-label.red{color:#e04040}
-.filter-section-label.yellow{color:#e8c01a}
-.filter-btn{display:block;width:100%;text-align:left;font-family:var(--font-ui);font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 7px;margin-bottom:2px;border-radius:2px;border:1px solid transparent;background:transparent;cursor:pointer;transition:all .12s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.filter-btn.blue{color:#7ab3d4}
-.filter-btn.red{color:#e04040}
-.filter-btn.yellow{color:#e8c01a}
-.filter-btn:hover{background:var(--div-surface2);border-color:var(--div-border)}
-.filter-btn.active.blue{background:rgba(100,160,210,.15);border-color:rgba(100,160,210,.3)}
-.filter-btn.active.red{background:rgba(224,64,64,.1);border-color:rgba(224,64,64,.25)}
-.filter-btn.active.yellow{background:rgba(232,192,26,.1);border-color:rgba(232,192,26,.25)}
-.filter-clear{font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:none;border:1px solid var(--div-border2);border-radius:2px;padding:4px 8px;cursor:pointer;color:var(--div-text-dim);width:100%;margin-top:.25rem;transition:all .12s}
-.filter-clear:hover{border-color:var(--div-orange);color:var(--div-orange)}
+
+@media(max-width:640px){}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .brand-search-wrap{display:flex;gap:8px;margin-bottom:1rem;align-items:center}
 .brand-search{font-family:var(--font-ui);font-size:13px;font-weight:600;padding:8px 12px;border:1px solid var(--div-border2);border-radius:3px;background:var(--div-surface);color:var(--div-text);flex:1;letter-spacing:.03em}
 .brand-search:focus{outline:none;border-color:var(--div-orange)}
@@ -207,7 +207,6 @@ var BRANDS=[
 ];
 
 var brandSearch='';
-var activeFilters=[];
 var ALL_LOCS=[{name:'The Art Museum',type:'mission',district:'West End'},{name:'Manning National Zoo',type:'stronghold',district:'Northeast'},{name:'Camp White Oak',type:'mission',district:'Camp White Oak'},{name:'The Pentagon',type:'stronghold',district:'Pentagon'},{name:'DARPA Research Labs',type:'mission',district:'Southwest'},{name:'Potomac Event Center',type:'mission',district:'Upper Northwest'},{name:'Grand Washington Hotel',type:'mission',district:'West End'},{name:'Jefferson Trade Center',type:'mission',district:'Constitution Hall'},{name:'Bank Headquarters',type:'mission',district:'Downtown West'},{name:'ViewPoint Museum',type:'mission',district:'Downtown East'},{name:'American History Museum',type:'mission',district:'Federal Triangle'},{name:'DCD Headquarters',type:'mission',district:'Penn Quarter'},{name:'Lincoln Memorial',type:'mission',district:'West Potomac Park'},{name:'Air & Space Museum',type:'mission',district:'East Mall'},{name:'Federal Emergency Bunker',type:'mission',district:'Southwest'},{name:'Space Administration HQ',type:'mission',district:'Downtown West'},{name:'Jefferson Plaza',type:'mission',district:'Northeast'},{name:'Roosevelt Island',type:'stronghold',district:'Roosevelt Island'},{name:'District Union Arena',type:'stronghold',district:'Downtown East'},{name:'Capitol Building',type:'stronghold',district:'Capitol Hill'},{name:'Tidal Basin',type:'stronghold',district:'Tidal Basin'},{name:'Stranded Tanker',type:'mission',district:'Two Bridges'}];
 var TIERS=[{lb:'Free',cost:0,prof:2,drop:0,tgt:0,cls:'t-free',mut:[]},{lb:'T-1',cost:1,prof:3,drop:0.2,tgt:5,cls:'t-low',mut:['Harvester']},{lb:'T-2',cost:3,prof:6,drop:0.4,tgt:11,cls:'t-low',mut:['Harvester','Unyielding']},{lb:'T-3',cost:7,prof:10,drop:0.6,tgt:16,cls:'t-low',mut:['Harvester','Unyielding','Suppressor']},{lb:'T-4',cost:12,prof:16,drop:0.6,tgt:22,cls:'t-mid',mut:['Harvester','Unyielding','Suppressor']},{lb:'T-5',cost:20,prof:24,drop:0.8,tgt:28,cls:'t-mid',mut:['Harvester','Unyielding','Suppressor','Anchor']},{lb:'T-6',cost:29,prof:34,drop:1.25,tgt:39,cls:'t-mid',mut:['Harvester','Unyielding','Suppressor','Anchor','Hot Foot']},{lb:'T-7',cost:41,prof:46,drop:1.5,tgt:45,cls:'t-hi',mut:['Harvester','Unyielding','Suppressor','Anchor','Hot Foot','Aid Specialist']},{lb:'T-8',cost:54,prof:60,drop:2.0,tgt:50,cls:'t-hi',mut:['Harvester','Unyielding','Suppressor','Anchor','Hot Foot','Aid Specialist']},{lb:'T-9',cost:70,prof:76,drop:2.5,tgt:56,cls:'t-hi',mut:['Harvester','Unyielding','Suppressor','Anchor','Hot Foot','Aid Specialist']},{lb:'T-10',cost:87,prof:94,drop:3.0,tgt:62,cls:'t-hi',mut:['Harvester','Unyielding','Suppressor','Anchor','Hot Foot','Aid Specialist']}];
 var MUTATORS=[{n:'Harvester',d:'When dealing damage, this enemy regenerates Armor and Health by a percentage of your maximum Armor. Can overheal.',starts:'T-1+',global:false},{n:'Unyielding',d:'All enemies become immune to crowd control effects while significantly damaged.',starts:'T-2+',global:true},{n:'Suppressor',d:'When damaged, this enemy starts to charge an EMP blast. When fully charged, he unleashes it, disrupting everything in the area.',starts:'T-3+',global:false},{n:'Anchor',d:'This enemy has damage resistance and fires incendiary ammo as long as he has any allies around him.',starts:'T-5+',global:false},{n:'Hot Foot',d:'If you stay in the same spot for too long, a charge counter begins to fill. When it reaches maximum, you are Shocked and take damage.',starts:'T-6+',global:true},{n:'Aid Specialist',d:'This enemy periodically Repairs the Armor of all allies around him, if they are badly damaged.',starts:'T-7+',global:false}];
@@ -258,11 +257,8 @@ function colorizeBonusText(text){
 }
 function renderBrandGrid(){
   var filtered=BRANDS.filter(function(b){
-    var nameMatch=!brandSearch||b.name.toLowerCase().indexOf(brandSearch.toLowerCase())!==-1;
-    if(!nameMatch)return false;
-    if(activeFilters.length===0)return true;
+    return !brandSearch||b.name.toLowerCase().indexOf(brandSearch.toLowerCase())!==-1;
     var bonuses=(b.b1+' '+b.b2+' '+b.b3).toLowerCase();
-    return activeFilters.every(function(kw){return bonuses.indexOf(kw.toLowerCase())!==-1;});
   });
   var grid=document.getElementById('brand-grid');
   var count=document.getElementById('brand-count');
@@ -285,11 +281,6 @@ function renderBrandGrid(){
   });
   if(filtered.length===0)h='<p class="note" style="text-align:center;margin-top:2rem">No brand sets match your search.</p>';
   grid.innerHTML=h;
-  // Update filter button active states
-  document.querySelectorAll('.filter-btn').forEach(function(btn){
-    var kw=btn.getAttribute('data-kw');
-    if(activeFilters.indexOf(kw)!==-1){btn.classList.add('active');}else{btn.classList.remove('active');}
-  });
   if(count)count.textContent=filtered.length+' / '+BRANDS.length;
 }
 function render(){
@@ -325,13 +316,10 @@ function render(){
 
   if(tab==='brands'){
     var filtered=BRANDS.filter(function(b){
-    var nameMatch=!brandSearch||b.name.toLowerCase().indexOf(brandSearch.toLowerCase())!==-1;
-    if(!nameMatch)return false;
-    if(activeFilters.length===0)return true;
+    return !brandSearch||b.name.toLowerCase().indexOf(brandSearch.toLowerCase())!==-1;
     var bonuses=(b.b1+' '+b.b2+' '+b.b3).toLowerCase();
-    return activeFilters.every(function(kw){return bonuses.indexOf(kw.toLowerCase())!==-1;});
   });
-    h+='<div class="brand-layout">';h+='<div class="brand-filters">';h+='<div class="filter-title">Advanced Search</div>';h+='<div class="filter-section"><div class="filter-section-label red">Offense</div>';h+='<button class="filter-btn red" data-kw="Weapon Damage" onclick="toggleFilter(\''+'Weapon Damage'+'\')">Weapon Damage</button>';h+='<button class="filter-btn red" data-kw="Critical Hit Damage" onclick="toggleFilter(\''+'Critical Hit Damage'+'\')">Critical Hit Damage</button>';h+='<button class="filter-btn red" data-kw="Critical Hit Chance" onclick="toggleFilter(\''+'Critical Hit Chance'+'\')">Critical Hit Chance</button>';h+='<button class="filter-btn red" data-kw="Headshot Damage" onclick="toggleFilter(\''+'Headshot Damage'+'\')">Headshot Damage</button>';h+='<button class="filter-btn red" data-kw="Marksman Rifle Damage" onclick="toggleFilter(\''+'Marksman Rifle Damage'+'\')">Marksman Rifle Damage</button>';h+='<button class="filter-btn red" data-kw="Assault Rifle Damage" onclick="toggleFilter(\''+'Assault Rifle Damage'+'\')">Assault Rifle Damage</button>';h+='<button class="filter-btn red" data-kw="SMG Damage" onclick="toggleFilter(\''+'SMG Damage'+'\')">SMG Damage</button>';h+='<button class="filter-btn red" data-kw="LMG Damage" onclick="toggleFilter(\''+'LMG Damage'+'\')">LMG Damage</button>';h+='<button class="filter-btn red" data-kw="Rifle Damage" onclick="toggleFilter(\''+'Rifle Damage'+'\')">Rifle Damage</button>';h+='<button class="filter-btn red" data-kw="Shotgun Damage" onclick="toggleFilter(\''+'Shotgun Damage'+'\')">Shotgun Damage</button>';h+='<button class="filter-btn red" data-kw="Pistol Damage" onclick="toggleFilter(\''+'Pistol Damage'+'\')">Pistol Damage</button>';h+='<button class="filter-btn red" data-kw="Magazine Size" onclick="toggleFilter(\''+'Magazine Size'+'\')">Magazine Size</button>';h+='<button class="filter-btn red" data-kw="Ammo Capacity" onclick="toggleFilter(\''+'Ammo Capacity'+'\')">Ammo Capacity</button>';h+='<button class="filter-btn red" data-kw="Accuracy" onclick="toggleFilter(\''+'Accuracy'+'\')">Accuracy</button>';h+='<button class="filter-btn red" data-kw="Stability" onclick="toggleFilter(\''+'Stability'+'\')">Stability</button>';h+='<button class="filter-btn red" data-kw="Reload Speed" onclick="toggleFilter(\''+'Reload Speed'+'\')">Reload Speed</button>';h+='<button class="filter-btn red" data-kw="Weapon Handling" onclick="toggleFilter(\''+'Weapon Handling'+'\')">Weapon Handling</button>';h+='<button class="filter-btn red" data-kw="Damage to Armor" onclick="toggleFilter(\''+'Damage to Armor'+'\')">Damage to Armor</button>';h+='<button class="filter-btn red" data-kw="Damage to Health" onclick="toggleFilter(\''+'Damage to Health'+'\')">Damage to Health</button>';h+='<button class="filter-btn red" data-kw="Rate of Fire" onclick="toggleFilter(\''+'Rate of Fire'+'\')">Rate of Fire</button>';h+='<button class="filter-btn red" data-kw="Optimal Range" onclick="toggleFilter(\''+'Optimal Range'+'\')">Optimal Range</button>';h+='<button class="filter-btn red" data-kw="Swap Speed" onclick="toggleFilter(\''+'Swap Speed'+'\')">Swap Speed</button>';h+='<button class="filter-btn red" data-kw="Increased Threat" onclick="toggleFilter(\''+'Increased Threat'+'\')">Increased Threat</button>';h+='</div>';h+='<div class="filter-section"><div class="filter-section-label blue">Defense</div>';h+='<button class="filter-btn blue" data-kw="Armor" onclick="toggleFilter(\''+'Armor'+'\')">Armor</button>';h+='<button class="filter-btn blue" data-kw="Health" onclick="toggleFilter(\''+'Health'+'\')">Health</button>';h+='<button class="filter-btn blue" data-kw="Hazard Protection" onclick="toggleFilter(\''+'Hazard Protection'+'\')">Hazard Protection</button>';h+='<button class="filter-btn blue" data-kw="Incoming Repairs" onclick="toggleFilter(\''+'Incoming Repairs'+'\')">Incoming Repairs</button>';h+='<button class="filter-btn blue" data-kw="Explosive Resistance" onclick="toggleFilter(\''+'Explosive Resistance'+'\')">Explosive Resistance</button>';h+='<button class="filter-btn blue" data-kw="Pulse Resistance" onclick="toggleFilter(\''+'Pulse Resistance'+'\')">Pulse Resistance</button>';h+='<button class="filter-btn blue" data-kw="Shock Resistance" onclick="toggleFilter(\''+'Shock Resistance'+'\')">Shock Resistance</button>';h+='</div>';h+='<div class="filter-section"><div class="filter-section-label yellow">Skill</div>';h+='<button class="filter-btn yellow" data-kw="Skill Damage" onclick="toggleFilter(\''+'Skill Damage'+'\')">Skill Damage</button>';h+='<button class="filter-btn yellow" data-kw="Skill Repair" onclick="toggleFilter(\''+'Skill Repair'+'\')">Skill Repair</button>';h+='<button class="filter-btn yellow" data-kw="Skill Duration" onclick="toggleFilter(\''+'Skill Duration'+'\')">Skill Duration</button>';h+='<button class="filter-btn yellow" data-kw="Skill Haste" onclick="toggleFilter(\''+'Skill Haste'+'\')">Skill Haste</button>';h+='<button class="filter-btn yellow" data-kw="Skill Tier" onclick="toggleFilter(\''+'Skill Tier'+'\')">Skill Tier</button>';h+='<button class="filter-btn yellow" data-kw="Skill Health" onclick="toggleFilter(\''+'Skill Health'+'\')">Skill Health</button>';h+='<button class="filter-btn yellow" data-kw="Skill Efficiency" onclick="toggleFilter(\''+'Skill Efficiency'+'\')">Skill Efficiency</button>';h+='<button class="filter-btn yellow" data-kw="Repair Skills" onclick="toggleFilter(\''+'Repair Skills'+'\')">Repair Skills</button>';h+='<button class="filter-btn yellow" data-kw="Status Effects" onclick="toggleFilter(\''+'Status Effects'+'\')">Status Effects</button>';h+='<button class="filter-btn yellow" data-kw="Explosive Damage" onclick="toggleFilter(\''+'Explosive Damage'+'\')">Explosive Damage</button>';h+='</div>';h+='<button class="filter-clear" onclick="clearFilters()">Clear Filters</button>';h+='</div>';h+='<div>';h+='<div class="brand-search-wrap"><input class="brand-search" id="bsi" placeholder="Search brand sets..." value="'+brandSearch+'" oninput="brandSearch=this.value;renderBrandGrid()"/><span class="brand-count" id="brand-count">'+filtered.length+' / '+BRANDS.length+'</span></div><div class="brand-grid" id="brand-grid">';
+    h+='<div class="brand-search-wrap"><input class="brand-search" id="bsi" placeholder="Search brand sets..." value="'+brandSearch+'" oninput="brandSearch=this.value;renderBrandGrid()"/><span class="brand-count" id="brand-count">'+filtered.length+' / '+BRANDS.length+'</span></div><div class="brand-grid" id="brand-grid">';
     filtered.forEach(function(b){
       var url=GITHUB_RAW+b.file+'.png';
       var initials=b.name.replace(/[^a-zA-Z ]/g,'').trim().split(' ').slice(0,2).map(function(w){return w[0]||'';}).join('').toUpperCase();
@@ -349,8 +337,6 @@ function render(){
     });
     h+='</div>';
     if(filtered.length===0)h+='<p class="note" style="text-align:center;margin-top:2rem">No brand sets match your search.</p>';
-    h+='</div>';
-    h+='</div>';
   }
 
   document.getElementById('root').innerHTML=h;
@@ -363,8 +349,6 @@ function startTimer(){if(timerRef)clearInterval(timerRef);timerRef=setInterval(f
 function setTab(t){tab=t;editing=null;awaitingPw=null;pwError=false;render();}
 function selectTier(i){selectedTier=selectedTier===i?null:i;render();}
 function setBrandSearch(v){brandSearch=v;renderBrandGrid();}
-function toggleFilter(kw){var i=activeFilters.indexOf(kw);if(i===-1){activeFilters.push(kw);}else{activeFilters.splice(i,1);}renderBrandGrid();}
-function clearFilters(){activeFilters=[];renderBrandGrid();}
 function tryEdit(i){if(editing===i){cancelEdit();return;}if(isAdmin){editing=i;awaitingPw=null;pwError=false;render();setTimeout(function(){var el=document.getElementById('en'+i);if(el)el.focus();},50);return;}awaitingPw=awaitingPw===i?null:i;editing=null;pwError=false;render();setTimeout(function(){var el=document.getElementById('pw'+i);if(el)el.focus();},50);}
 function checkPw(i){var v=((document.getElementById('pw'+i)||{}).value||'').trim();if(v===ADMIN_PW){isAdmin=true;awaitingPw=null;editing=i;pwError=false;render();setTimeout(function(){var el=document.getElementById('en'+i);if(el)el.focus();},50);}else{pwError=true;render();setTimeout(function(){var el=document.getElementById('pw'+i);if(el)el.focus();},50);}}
 function cancelEdit(){editing=null;awaitingPw=null;pwError=false;render();}
