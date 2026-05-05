@@ -4,8 +4,9 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Division 2 Codex</title>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--div-orange:#e8871a;--div-orange-bright:#ff9422;--div-teal:#4ef0d8;--div-surface:#111820;--div-surface2:#0d1219;--div-border:#1e2d3d;--div-border2:#2a3d52;--div-text:#c8d8e8;--div-text-dim:#5a7a90;--font-hud:'Barlow Condensed',sans-serif;--font-ui:'Rajdhani',sans-serif}
@@ -103,42 +104,18 @@ html,body{min-height:100%;background:#0a0e14;font-family:var(--font-ui);color:va
 .mut-item.active .mut-item-desc{color:var(--div-text)}
 .mut-item-tier{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--div-text-dim);margin-top:3px}
 .mut-item.active .mut-item-tier{color:var(--div-orange)}
-
-
-/* Bonus keyword colors */
 .bk-blue{color:#7ab3d4}
 .bk-red{color:#e04040}
 .bk-yellow{color:#e8c01a}
 /* BRAND SETS */
-
-/* Brand filter sidebar */
-
-@media(max-width:640px){}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .brand-search-wrap{display:flex;gap:8px;margin-bottom:1rem;align-items:center}
 .brand-search{font-family:var(--font-ui);font-size:13px;font-weight:600;padding:8px 12px;border:1px solid var(--div-border2);border-radius:3px;background:var(--div-surface);color:var(--div-text);flex:1;letter-spacing:.03em}
 .brand-search:focus{outline:none;border-color:var(--div-orange)}
 .brand-count{font-size:11px;font-weight:600;color:var(--div-text-dim);white-space:nowrap;letter-spacing:.06em}
 .brand-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-bottom:1rem}
-.brand-card{background:var(--div-surface);border:1px solid var(--div-border);border-radius:4px;overflow:hidden;transition:border-color .15s,transform .18s}
-.brand-card:hover{border-color:var(--div-border2);transform:translateY(-2px)}
-.brand-card-top{display:flex;align-items:center;gap:10px;padding:.75rem .875rem;border-bottom:1px solid var(--div-border)}
+.brand-card{background:#1a1610;border:1px solid #3a3020;border-radius:4px;overflow:hidden;transition:border-color .15s,transform .18s}
+.brand-card:hover{border-color:#5a4a30;transform:translateY(-2px)}
+.brand-card-top{display:flex;align-items:center;gap:10px;padding:.75rem .875rem;border-bottom:1px solid #2e2518}
 .brand-icon{width:44px;height:44px;object-fit:contain;flex-shrink:0}
 .brand-icon-fallback{width:44px;height:44px;background:var(--div-surface2);border:1px solid var(--div-border2);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-hud);font-size:14px;font-weight:700;color:var(--div-text-dim)}
 .brand-name{font-family:var(--font-hud);font-size:15px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;line-height:1.2}
@@ -149,85 +126,137 @@ html,body{min-height:100%;background:#0a0e14;font-family:var(--font-ui);color:va
 .bonus-pip.p2{background:rgba(232,135,26,.12);color:var(--div-orange);border:1px solid rgba(232,135,26,.22)}
 .bonus-pip.p3{background:rgba(58,191,94,.12);color:#3abf5e;border:1px solid rgba(58,191,94,.22)}
 .bonus-text{font-size:12px;font-weight:600;color:var(--div-text);line-height:1.45}
+/* GEAR SETS */
+.gearset-search-wrap{display:flex;gap:8px;margin-bottom:1rem;align-items:center}
+.gearset-search{font-family:var(--font-ui);font-size:13px;font-weight:600;padding:8px 12px;border:1px solid var(--div-border2);border-radius:3px;background:var(--div-surface);color:var(--div-text);flex:1;letter-spacing:.03em}
+.gearset-search:focus{outline:none;border-color:var(--div-orange)}
+.gearset-count{font-size:11px;font-weight:600;color:var(--div-text-dim);white-space:nowrap;letter-spacing:.06em}
+.gearset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:1rem}
+/* UPDATED: Gear set card uses teal background to distinguish from brand sets */
+.gearset-card{background:rgba(78,240,216,.04);border:1px solid rgba(78,240,216,.18);border-radius:4px;overflow:hidden;transition:border-color .15s,transform .18s}
+.gearset-card:hover{border-color:rgba(78,240,216,.35);transform:translateY(-2px)}
+.gearset-card-top{display:flex;align-items:center;gap:10px;padding:.75rem .875rem;border-bottom:1px solid rgba(78,240,216,.12)}
+.gearset-icon{width:44px;height:44px;object-fit:contain;flex-shrink:0}
+.gearset-icon-fallback{width:44px;height:44px;background:var(--div-surface2);border:1px solid var(--div-border2);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-hud);font-size:12px;font-weight:700;color:var(--div-text-dim);text-align:center;line-height:1.2;padding:2px}
+.gearset-name{font-family:var(--font-hud);font-size:15px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;line-height:1.2;flex:1}
+.gearset-type{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px;line-height:1.5;white-space:nowrap}
+.gtype-red{background:rgba(220,60,60,.12);color:#e04040;border:1px solid rgba(220,60,60,.22)}
+.gtype-yellow{background:rgba(232,192,26,.1);color:#e8c01a;border:1px solid rgba(232,192,26,.2)}
+.gtype-blue{background:rgba(100,160,210,.12);color:#7ab3d4;border:1px solid rgba(100,160,210,.2)}
+.gearset-bonuses{padding:.625rem .875rem .75rem;display:flex;flex-direction:column;gap:4px}
+.gearset-bonus{display:flex;align-items:flex-start;gap:8px}
+.gpip{width:22px;height:18px;border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--font-hud);font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px;line-height:1}
+/* Neutral dark style for 2-piece and 3-piece pips — matches 4-piece */
+.gpip.go2,.gpip.go3,.gpip.gs2,.gpip.gs3,.gpip.gd2,.gpip.gd3{background:#0d1219;color:var(--div-text);border:1px solid var(--div-border2)}
+/* UPDATED: 4-piece pip with icon */
+.gpip.g4-icon{background:rgba(78,240,216,.08);border:1px solid rgba(78,240,216,.3);width:22px;height:18px;padding:1px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+/* Kept for chest/bp */
+.gpip.gchest{background:rgba(232,192,26,.1);color:#e8c01a;border:1px solid rgba(232,192,26,.2)}
+.gpip.gbp{background:rgba(155,100,210,.12);color:#b47ad4;border:1px solid rgba(155,100,210,.22)}
+.gearset-bonus-text{font-size:11px;font-weight:600;color:var(--div-text);line-height:1.45}
+.gearset-talent-name{font-weight:700;color:#3abf5e}
+.gearset-chest-label{font-weight:700;color:#e8c01a}
+.gearset-bp-label{font-weight:700;color:#b47ad4}
 .note{font-size:11px;font-weight:500;letter-spacing:.05em;color:var(--div-text-dim);margin-top:.875rem;font-style:italic}
-
 /* Mobile responsive mission rows */
 @media(max-width:600px){
-  .mrow-inner{flex-wrap:wrap}
-  .mrow-num{width:36px;min-height:auto;padding:.5rem 0}
-  .mrow-icon{width:40px;border-right:none}
-  .mrow-info{flex:1;border-right:none;padding:.5rem .75rem .25rem}
-  .mrow-name{font-size:14px;white-space:normal;overflow:visible;text-overflow:unset}
-  .mrow-loot{flex:1 0 100%;padding:.25rem .75rem .6rem;border-top:1px solid var(--div-border)}
-  .mrow-loot-item{font-size:16px;white-space:normal;overflow:visible;text-overflow:unset}
-  .topbar-titles h1{font-size:24px}
-  .timer-val{font-size:28px}
-  .weekly-pill{font-size:12px;padding:5px 10px}
-  .tabs{gap:2px}
-  .tab{font-size:11px;padding:7px 10px;letter-spacing:.08em}
+.mrow-inner{flex-wrap:wrap}
+.mrow-num{width:36px;min-height:auto;padding:.5rem 0}
+.mrow-icon{width:40px;border-right:none}
+.mrow-info{flex:1;border-right:none;padding:.5rem .75rem .25rem}
+.mrow-name{font-size:14px;white-space:normal;overflow:visible;text-overflow:unset}
+.mrow-loot{flex:1 0 100%;padding:.25rem .75rem .6rem;border-top:1px solid var(--div-border)}
+.mrow-loot-item{font-size:16px;white-space:normal;overflow:visible;text-overflow:unset}
+.topbar-titles h1{font-size:24px}
+.timer-val{font-size:28px}
+.weekly-pill{font-size:12px;padding:5px 10px}
+.tabs{gap:2px}
+.tab{font-size:11px;padding:7px 10px;letter-spacing:.08em}
 }
 </style>
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/nashint/division2/design-assets/Division2.png"/>
 </head>
 <body>
 <div class="page" id="root"></div>
 <script>
-var SUPABASE_URL  = 'https://ykgyntpxnnmcteygytsg.supabase.co';
+var SUPABASE_URL = 'https://ykgyntpxnnmcteygytsg.supabase.co';
 var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlrZ3ludHB4bm5tY3RleWd5dHNnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwODgwODYsImV4cCI6MjA5MjY2NDA4Nn0.QRBr3KSMqqksAoajlG4Fag-SZljIRhqC8Olu5W3slU0';
 var ADMIN_PW = 'Nachocheese';
 var GITHUB_RAW = 'https://raw.githubusercontent.com/nashint/div2-escalation-targeted-loot/design-assets/';
-
 var _sb=null;
 function sb(){if(!_sb)_sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON);return _sb;}
-
 function strongholdSVG(sz,c){c=c||'#4ef0d8';return'<svg width="'+sz+'" height="'+sz+'" viewBox="0 0 100 60" fill="'+c+'"><polygon points="8,28 22,28 22,18 15,10 8,18"/><rect x="10" y="20" width="10" height="5" fill="#0a0e14"/><rect x="8" y="30" width="14" height="22"/><line x1="8" y1="36" x2="22" y2="52" stroke="#0a0e14" stroke-width="2.5"/><line x1="22" y1="36" x2="8" y2="52" stroke="#0a0e14" stroke-width="2.5"/><rect x="8" y="52" width="14" height="3"/><polygon points="32,24 65,24 65,14 48,6 32,14"/><rect x="32" y="26" width="33" height="26"/><rect x="34" y="38" width="4" height="14" fill="#0a0e14"/><rect x="41" y="38" width="4" height="14" fill="#0a0e14"/><rect x="48" y="38" width="4" height="14" fill="#0a0e14"/><rect x="55" y="38" width="4" height="14" fill="#0a0e14"/><rect x="65" y="32" width="18" height="20"/><polygon points="65,32 83,32 74,24"/></svg>';}
 function hexSVG(sz,c){c=c||'rgba(55,138,221,0.8)';return'<svg width="'+sz+'" height="'+sz+'" viewBox="0 0 24 24" fill="none"><path d="M12 2L21 7V17L12 22L3 17V7Z" stroke="'+c+'" stroke-width="1.6"/><path d="M12 6L17.5 9V15L12 18L6.5 15V9Z" stroke="'+c+'" stroke-width="1" opacity="0.45"/></svg>';}
-
 var BRANDS=[
-  {name:'5.11 Tactical',              file:'511tactical',            b1:'+30% Health',                b2:'+30% Incoming Repairs',      b3:'+30% Hazard Protection'},
-  {name:'Airaldi Holdings',           file:'airaldiholdings',         b1:'+10% Marksman Rifle Damage', b2:'+13% Headshot Damage',       b3:'+5% Damage to Armor'},
-  {name:'Alps Summit Armament',       file:'alpssummitarmament',      b1:'+18% Skill Repair',          b2:'+30% Skill Duration',        b3:'+30% Skill Haste'},
-  {name:'Badger Tuff',                file:'badgertuff',              b1:'+10% Shotgun Damage',        b2:'+5% Total Armor',            b3:'+15% Armor on Kill'},
-  {name:'Belstone Armory',            file:'belstonearmory',          b1:'+1% Armor Regen',            b2:'+10% Armor on Kill',         b3:'+45% Incoming Repairs'},
-  {name:'Brazos de Arcabuz',          file:'brazosdearchabuz',        b1:'+10% Skill Haste',           b2:'+1 Skill Tier',              b3:'+50% Magazine Size'},
-  {name:'Česká Výroba S.R.O.',        file:'ceskavyrobasro',          b1:'+8% Critical Hit Chance',    b2:'+20% Hazard Protection',     b3:'+90% Health'},
-  {name:'China Light Industries',     file:'chinalightindustries',    b1:'+15% Explosive Damage',      b2:'+20% Skill Haste',           b3:'+25% Status Effects'},
-  {name:'Douglas & Harding',          file:'douglasandharding',       b1:'+20% Pistol Damage',         b2:'+30% Stability',             b3:'+50% Accuracy'},
-  {name:'Electrique',                 file:'electrique',              b1:'+10% Status Effects',        b2:'+20% Shock Resistance',      b3:'+30% SMG Damage'},
-  {name:'Empress International',      file:'empressinternational',    b1:'+10% Skill Health',          b2:'+10% Skill Damage',          b3:'+8% Skill Efficiency'},
-  {name:'Fenris Group AB',            file:'fenrisgroupab',           b1:'+10% Assault Rifle Damage',  b2:'+30% Reload Speed',          b3:'+50% Stability'},
-  {name:'Gila Guard',                 file:'gilaguard',               b1:'+5% Total Armor',            b2:'+60% Health',                b3:'+2% Armor Regen'},
-  {name:'Golan Gear',                 file:'golangear',               b1:'+10% Status Effects',        b2:'+1.5% Armor Regen',          b3:'+10% Total Armor'},
-  {name:'Grupo Sombra S.A.',          file:'gruposombra',             b1:'+13% Critical Hit Damage',   b2:'+20% Explosive Damage',      b3:'+13% Headshot Damage'},
-  {name:'Habsburg Guard',             file:'habsburgguard',           b1:'+13% Headshot Damage',       b2:'+20% Marksman Rifle Damage', b3:'+25% Status Effects'},
-  {name:'Hana-U Corporation',         file:'hanaucorporation',        b1:'+10% Skill Haste',           b2:'+10% Skill Damage',          b3:'+15% Weapon Damage'},
-  {name:'Imminence Armaments',        file:'imminencearmaments',      b1:'+5% Weapon Damage',          b2:'+100% Increased Threat',     b3:'+60% Pistol Damage'},
-  {name:'Legatus S.p.A.',             file:'legatusspa',              b1:'+30% Swap Speed',            b2:'+70% Optimal Range',         b3:'+15% Weapon Damage'},
-  {name:'Lengmo',                     file:'lengmo',                  b1:'+20% Explosive Resistance',  b2:'+20% Skill Health',          b3:'+30% LMG Damage'},
-  {name:'Murakami Industries',        file:'murakamiindustries',      b1:'+15% Skill Duration',        b2:'+35% Skill Repair',          b3:'+18% Skill Damage'},
-  {name:'Overlord Armaments',         file:'overlordarmaments',       b1:'+10% Rifle Damage',          b2:'+20% Accuracy',              b3:'+10% Weapon Handling'},
-  {name:'Palisade Steelworks',        file:'palisadesteelworks',      b1:'+10% Armor on Kill',         b2:'+60% Health',                b3:'+1 Skill Tier'},
-  {name:'Petrov Defense Group',       file:'petrovdefensegroup',      b1:'+10% LMG Damage',            b2:'+10% Weapon Handling',       b3:'+20% Ammo Capacity'},
-  {name:'Providence Defense',         file:'providencedefense',       b1:'+13% Headshot Damage',       b2:'+8% Critical Hit Chance',    b3:'+13% Critical Hit Damage'},
-  {name:'Richter & Kaiser GmbH',      file:'richterandkaisergmbh',    b1:'+15% Extra Incoming Repairs',b2:'+25% Explosive Resistance',  b3:'+40% Skill Repair'},
-  {name:'Royal Works',                file:'royalworks',              b1:'+5% Weapon Handling',        b2:'+32% Magazine Size',         b3:'+15% Critical Hit Damage'},
-  {name:'Shiny Monkey Gear',          file:'shinymonkeygear',         b1:'+15% Skill Duration',        b2:'+5% Skill Efficiency',       b3:'+52% Repair Skills'},
-  {name:'Sokolov Concern',            file:'sokolovconcern',          b1:'+10% SMG Damage',            b2:'+13% Critical Hit Damage',   b3:'+8% Critical Hit Chance'},
-  {name:'Unit Alloys',                file:'unitalloys',              b1:'+5% Rate of Fire',           b2:'+20% Assault Rifle Damage',  b3:'+50% Magazine Size'},
-  {name:'Urban Lookout',              file:'urbanlookout',            b1:'+10% Accuracy',              b2:'+5% Skill Efficiency',       b3:'+30% Marksman Rifle Damage'},
-  {name:'Uzina Getica',               file:'uzinagetica',             b1:'+5% Armor',                  b2:'+10% Armor on Kill',         b3:'+30% Hazard Protection'},
-  {name:'Walker, Harris & Co.',       file:'walkerharrisandco',       b1:'+5% Weapon Damage',          b2:'+5% Damage to Armor',        b3:'+10% Damage to Health'},
-  {name:'Wyvern Wear',                file:'wyvernwear',              b1:'+8% Skill Damage',           b2:'+18% Status Effects',        b3:'+45% Skill Duration'},
-  {name:'Yaahl Gear',                 file:'yaahlgear',               b1:'+10% Hazard Protection',     b2:'+10% Weapon Damage',         b3:'+40% Pulse Resistance'},
-  {name:'Zwiadowka SP. z o.o.',       file:'zwiadowkaspzoo',          b1:'+15% Magazine Size',         b2:'+20% Rifle Damage',          b3:'+30% Weapon Handling'},
+{name:'5.11 Tactical',file:'511tactical',b1:'+30% Health',b2:'+30% Incoming Repairs',b3:'+30% Hazard Protection'},
+{name:'Airaldi Holdings',file:'airaldiholdings',b1:'+10% Marksman Rifle Damage',b2:'+13% Headshot Damage',b3:'+5% Damage to Armor'},
+{name:'Alps Summit Armament',file:'alpssummitarmament',b1:'+18% Skill Repair',b2:'+30% Skill Duration',b3:'+30% Skill Haste'},
+{name:'Badger Tuff',file:'badgertuff',b1:'+10% Shotgun Damage',b2:'+5% Total Armor',b3:'+15% Armor on Kill'},
+{name:'Belstone Armory',file:'belstonearmory',b1:'+1% Armor Regen',b2:'+10% Armor on Kill',b3:'+45% Incoming Repairs'},
+{name:'Brazos de Arcabuz',file:'brazosdearchabuz',b1:'+10% Skill Haste',b2:'+1 Skill Tier',b3:'+50% Magazine Size'},
+{name:'Česká Výroba S.R.O.',file:'ceskavyrobasro',b1:'+8% Critical Hit Chance',b2:'+20% Hazard Protection',b3:'+90% Health'},
+{name:'China Light Industries',file:'chinalightindustries',b1:'+15% Explosive Damage',b2:'+20% Skill Haste',b3:'+25% Status Effects'},
+{name:'Douglas & Harding',file:'douglasandharding',b1:'+20% Pistol Damage',b2:'+30% Stability',b3:'+50% Accuracy'},
+{name:'Electrique',file:'electrique',b1:'+10% Status Effects',b2:'+20% Shock Resistance',b3:'+30% SMG Damage'},
+{name:'Empress International',file:'empressinternational',b1:'+10% Skill Health',b2:'+10% Skill Damage',b3:'+8% Skill Efficiency'},
+{name:'Fenris Group AB',file:'fenrisgroupab',b1:'+10% Assault Rifle Damage',b2:'+30% Reload Speed',b3:'+50% Stability'},
+{name:'Gila Guard',file:'gilaguard',b1:'+5% Total Armor',b2:'+60% Health',b3:'+2% Armor Regeneration'},
+{name:'Golan Gear',file:'golangear',b1:'+10% Status Effects',b2:'+1.5% Armor Regeneration',b3:'+10% Total Armor'},
+{name:'Grupo Sombra S.A.',file:'gruposombra',b1:'+13% Critical Hit Damage',b2:'+20% Explosive Damage',b3:'+13% Headshot Damage'},
+{name:'Habsburg Guard',file:'habsburgguard',b1:'+13% Headshot Damage',b2:'+20% Marksman Rifle Damage',b3:'+25% Status Effects'},
+{name:'Hana-U Corporation',file:'hanaucorporation',b1:'+10% Skill Haste',b2:'+10% Skill Damage',b3:'+15% Weapon Damage'},
+{name:'Imminence Armaments',file:'imminencearmaments',b1:'+5% Weapon Damage',b2:'+100% Increased Threat',b3:'+60% Pistol Damage'},
+{name:'Legatus S.p.A.',file:'legatusspa',b1:'+30% Swap Speed',b2:'+70% Optimal Range',b3:'+15% Weapon Damage'},
+{name:'Lengmo',file:'lengmo',b1:'+20% Explosive Resistance',b2:'+20% Skill Health',b3:'+30% LMG Damage'},
+{name:'Murakami Industries',file:'murakamiindustries',b1:'+15% Skill Duration',b2:'+35% Skill Repair',b3:'+18% Skill Damage'},
+{name:'Overlord Armaments',file:'overlordarmaments',b1:'+10% Rifle Damage',b2:'+20% Accuracy',b3:'+10% Weapon Handling'},
+{name:'Palisade Steelworks',file:'palisadesteelworks',b1:'+10% Armor on Kill',b2:'+60% Health',b3:'+1 Skill Tier'},
+{name:'Petrov Defense Group',file:'petrovdefensegroup',b1:'+10% LMG Damage',b2:'+10% Weapon Handling',b3:'+20% Ammo Capacity'},
+{name:'Providence Defense',file:'providencedefense',b1:'+13% Headshot Damage',b2:'+8% Critical Hit Chance',b3:'+13% Critical Hit Damage'},
+{name:'Richter & Kaiser GmbH',file:'richterandkaisergmbh',b1:'+15% Extra Incoming Repairs',b2:'+25% Explosive Resistance',b3:'+40% Skill Repair'},
+{name:'Royal Works',file:'royalworks',b1:'+5% Weapon Handling',b2:'+32% Magazine Size',b3:'+15% Critical Hit Damage'},
+{name:'Shiny Monkey Gear',file:'shinymonkeygear',b1:'+15% Skill Duration',b2:'+5% Skill Efficiency',b3:'+52% Repair Skills'},
+{name:'Sokolov Concern',file:'sokolovconcern',b1:'+10% SMG Damage',b2:'+13% Critical Hit Damage',b3:'+8% Critical Hit Chance'},
+{name:'Unit Alloys',file:'unitalloys',b1:'+5% Rate of Fire',b2:'+20% Assault Rifle Damage',b3:'+50% Magazine Size'},
+{name:'Urban Lookout',file:'urbanlookout',b1:'+10% Accuracy',b2:'+5% Skill Efficiency',b3:'+30% Marksman Rifle Damage'},
+{name:'Uzina Getica',file:'uzinagetica',b1:'+5% Armor',b2:'+10% Armor on Kill',b3:'+30% Hazard Protection'},
+{name:'Walker, Harris & Co.',file:'walkerharrisandco',b1:'+5% Weapon Damage',b2:'+5% Damage to Armor',b3:'+10% Damage to Health'},
+{name:'Wyvern Wear',file:'wyvernwear',b1:'+8% Skill Damage',b2:'+18% Status Effects',b3:'+45% Skill Duration'},
+{name:'Yaahl Gear',file:'yaahlgear',b1:'+10% Hazard Protection',b2:'+10% Weapon Damage',b3:'+40% Pulse Resistance'},
+{name:'Zwiadowka SP. z o.o.',file:'zwiadowkaspzoo',b1:'+15% Magazine Size',b2:'+20% Rifle Damage',b3:'+30% Weapon Handling'}
 ];
-
-var brandSearch='';
-var ALL_LOCS=[{name:'The Tombs',type:'mission',district:'Civic Center'},{name:'The Art Museum',type:'mission',district:'West End'},{name:'Manning National Zoo',type:'stronghold',district:'Northeast'},{name:'Camp White Oak',type:'mission',district:'Camp White Oak'},{name:'The Pentagon',type:'stronghold',district:'Pentagon'},{name:'DARPA Research Labs',type:'mission',district:'Southwest'},{name:'Potomac Event Center',type:'mission',district:'Upper Northwest'},{name:'Grand Washington Hotel',type:'mission',district:'West End'},{name:'Jefferson Trade Center',type:'mission',district:'Constitution Hall'},{name:'Bank Headquarters',type:'mission',district:'Downtown West'},{name:'ViewPoint Museum',type:'mission',district:'Downtown East'},{name:'American History Museum',type:'mission',district:'Federal Triangle'},{name:'DCD Headquarters',type:'mission',district:'Penn Quarter'},{name:'Lincoln Memorial',type:'mission',district:'West Potomac Park'},{name:'Air & Space Museum',type:'mission',district:'East Mall'},{name:'Federal Emergency Bunker',type:'mission',district:'Southwest'},{name:'Space Administration HQ',type:'mission',district:'Downtown West'},{name:'Jefferson Plaza',type:'mission',district:'Northeast'},{name:'Roosevelt Island',type:'stronghold',district:'Roosevelt Island'},{name:'District Union Arena',type:'stronghold',district:'Downtown East'},{name:'Capitol Building',type:'stronghold',district:'Capitol Hill'},{name:'Tidal Basin',type:'stronghold',district:'Tidal Basin'},{name:'Stranded Tanker',type:'mission',district:'Two Bridges'}];
+var GEARSETS=[
+{name:"Aces & Eights",file:"aceseights",type:"red",b2:"+15% Marksman Rifle Damage",b3:"+30% Headshot Damage",b4:"Dead Man's Hand \u2014 Flip a card landing shots with an MMR. After 5 cards, next shot is amplified by 30%. More shots enhanced on better hand (4 of a Kind: 4 shots, Full House: 3 shots, Aces & Eights: 2 shots). Headshots flip 2 cards.",chest:"No Limit \u2014 Increases Dead Man's Hand damage bonus from 30% to 50%.",bp:"Ace in the Sleeve \u2014 Amplifies 1 extra shot when revealing your hand."},
+{name:"Aegis",file:"aegis",type:"blue",b2:"+70% Health",b3:"+15% Total Armor",b4:"Stoic \u2014 +3% Damage Resistance for every enemy targeting you. Multiplied by 1.X where X is group size.",chest:"Deceit \u2014 Enemies targeting your Decoy also count toward Stoic Damage Reduction.",bp:"Polyethylene Plating \u2014 Increases Stoic Damage Resistance per enemy from 3% to 4%."},
+{name:"Breaking Point",file:"breakingpoint",type:"red",b2:"+25% Rifle Damage & +25% MMR Damage",b3:"+30% Headshot Damage & +15% Weapon Handling",b4:"On Point \u2014 Landing shots with a Rifle or MMR grants stacks. Reloading grants +2% Weapon Handling and +2% Weapon Damage per stack for 10s.",chest:"Point of no Return \u2014 Increases On Point bonus timer from 10s to 15s.",bp:"Point of Honor \u2014 Increases On Point Weapon Damage bonus from 2% to 3%."},
+{name:"Cavalier",file:"cavalier",type:"yellow",b2:"+30% Hazard Protection",b3:"+40% Repair Skills",b4:"Charging/Charged \u2014 Out of cover in combat: gain 5% reduced incoming skill damage per second (max 50%). While fully charged, gain movement speed immunity and share hazard protection and incoming damage reduction with allies for 10s.",chest:"Overcharging \u2014 Increases Charging max incoming damage protection to 70%.",bp:"Safe Charging \u2014 Charging gives 10% protection per second."},
+{name:"Concentrated Company",file:"concentratedcompany",type:"red",b2:"+10% Weapon Damage",b3:"+30% Weapon Handling",b4:"Camaraderie \u2014 Mark up to 4 enemies by shooting them. When a marked enemy dies, gain a stack per Ally or Skill that helped kill them. Each stack: +3% Weapon Damage & +2% Critical Hit Damage. Max 35 stacks.",chest:"All for One \u2014 Doubles marking capacity from 4 to 8 marks.",bp:"One for All \u2014 Increases Weapon Damage bonus per stack from 3% to 5%."},
+{name:"Core Strength",file:"corestrength",type:"red",b2:"+15% Weapon Damage",b3:"+15% Skill Damage & +15% Total Armor",b4:"Core Exercise \u2014 For each Core attribute on a Core Strength piece, receive 40% of the other two Cores' bonuses. Skill Tiers count as 15% Skill Efficiency.",chest:"Inner Core \u2014 Increases bonus from other cores from 40% to 75%.",bp:"Outer Core \u2014 Backpack features three Core Attributes. Does not change Core Exercise talent."},
+{name:"Eclipse Protocol",file:"eclipseprotocol",type:"yellow",b2:"+15% Status Effects",b3:"+15% Skill Haste & +30% Hazard Protection",b4:"Indirect Transmission \u2014 Status effects spread on kill to all enemies within 10m and refresh 50% of the duration.",chest:"Proliferation \u2014 Increases range from 10m to 15m and refresh from 50% to 75%.",bp:"Symptom Aggravator \u2014 Amplifies all damage dealt to status-affected targets by 30%."},
+{name:"Foundry Bulwark",file:"foundrybulwark",type:"blue",b2:"+10% Total Armor",b3:"+1% Armor Regen & +50% Shield Health",b4:"Makeshift Repairs \u2014 Whenever you or your shield take damage, 25% of that amount is repaired to both over 10s.",chest:"Improved Materials \u2014 Increases Makeshift Repairs from 25% to 35%.",bp:"Process Refinery \u2014 Increases Makeshift Repairs speed from 10s to 5s."},
+{name:"Future Initiative",file:"futureinitiative",type:"yellow",b2:"+30% Repair Skills",b3:"+15% Skill Haste & +30% Skill Duration",b4:"Ground Control \u2014 You and allies gain +15% total weapon and skill damage at full armor. Repairing an ally also repairs you and allies within 5m for 60% of that amount.",chest:"Tactical Superiority \u2014 Increases Ground Control damage bonus from 15% to 25%.",bp:"Strategic Combat Support \u2014 Increases Ground Control proximity repair from 60% to 120%."},
+{name:"Hard Wired",file:"hardwired",type:"yellow",b2:"+15% Skill Haste",b3:"+15% Skill Damage & +30% Repair Skills",b4:"Feedback Loop \u2014 Using or cancelling a skill reduces the other skill's cooldown by 30s and increases skill damage and repair by 10% for 20s. Occurs once every 20s.",chest:"Positive Reinforcement \u2014 Increases Feedback Loop skill damage and repair bonus from 10% to 25%.",bp:"Short Circuit \u2014 Decreases Feedback Loop cooldown from 20s to 10s."},
+{name:"Heartbreaker",file:"heartbreaker",type:"red",b2:"+15% AR Damage & +15% LMG Damage",b3:"+15% Weapon Handling",b4:"Heartstopper \u2014 Headshots apply pulse for 5s. Hits on pulsed enemies add stacks of 1% bonus armor and 1% weapon damage to pulsed enemies (max 50 stacks). 2 stacks lost per second.",chest:"Max BPM \u2014 Increases max stacks from 50 to 100.",bp:"Cold \u2014 Increases bonus armor per stack from 1% to 2%."},
+{name:"Hotshot",file:"hotshot",type:"red",b2:"+30% Marksman Rifle Damage & +30% Weapon Handling",b3:"+30% Headshot Damage",b4:"Headache \u2014 1st headshot increases next by 20%. 2nd consecutive headshot gives +10% armor (or up to 50% bonus armor). 3rd consecutive headshot refills magazine. From 4th onward all 3 bonuses apply per headshot kill.",chest:"Daring \u2014 Increase bonus armor from 50% to 100%.",bp:"Blessed \u2014 Agents can miss one headshot before resetting the cycle."},
+{name:"Hunter's Fury",file:"huntersfury",type:"red",b2:"+15% Shotgun Damage & +15% SMG Damage",b3:"+20% Armor on Kill & +50% Health on Kill",b4:"Apex Predator \u2014 Enemies within 15m take 20% amplified weapon damage. Killing a debuffed enemy disorients nearby enemies within 5m and gives +5% weapon damage for 10s, stacking up to 5 times.",chest:"Endless Hunger \u2014 Increases Apex Predator stack duration from 10s to 30s.",bp:"Overwhelming Force \u2014 Increases disorient radius on kill from 5m to 10m."},
+{name:"Measured Assembly",file:"measuredassembly",type:"yellow",b2:"+15% Skill Haste",b3:"+60% Repair Skills & +40% Explosive Resistance",b4:"Huddle \u2014 +1 Skill Tier per ally in range of your Hive. At Skill Tier 6 with an ally nearby for 4s, grants Overcharge for 15s (40s cooldown). Destroys enemy mortars/skills that enter Hive range (10s cooldown).",chest:"Hivemind \u2014 Decreases Overcharge cooldown from 40s to 25s.",bp:"Smart Cooperation \u2014 Decreases cooldown for destroying enemy skills from 10s to 1s."},
+{name:"Negotiator's Dilemma",file:"negotiatorsdilemma",type:"red",b2:"+15% Critical Hit Chance",b3:"+20% Critical Hit Damage",b4:"Hostile Negotiations \u2014 Critical hits mark enemies for 20s (up to 3 marks). Critically hitting a marked enemy deals 60% of that damage to all other marked enemies. Marked enemy death: +2% critical hit damage per kill (max 20 stacks).",chest:"Target Rich Environment \u2014 Increases mark count from 3 to 5.",bp:"Critical Measures \u2014 Increases damage to additional marked enemies from 60% to 100%."},
+{name:"Ongoing Directive",file:"ongoingdirective",type:"red",b2:"+15% Status Effects",b3:"+30% Reload Speed",b4:"Rules of Engagement \u2014 Shooting a status-affected enemy marks them. Killing a marked enemy grants a full clip of Hollow-Point Ammo (half to party). Hollow-Point Ammo: +20% weapon damage, applies bleed on hit. Mark lasts 10s.",chest:"Parabellum Rounds \u2014 Increases Hollow-Point Ammo damage amplification to 35% (does not apply to party).",bp:"Trauma Specialist \u2014 Increases bleed duration by 50% and bleed damage by 100%."},
+{name:"Ortiz: Exuro",file:"ortizexuro",type:"yellow",b2:"+20% Burn Duration & +15% Skill Health",b3:"+40% Burn Damage",b4:"Ortiz Incinerator Turret Prototype \u2014 The Incinerator Turret spins 360\u00b0. Immune to your own turret's fire. Turret explodes when disabled.",chest:"Chain Combustion \u2014 Enemies set on fire by the turret ignite others within 2m.",bp:"Heatstroke \u2014 +25% Weapon Damage to enemies on fire & +25% turret range."},
+{name:"Refactor",file:"refactor",type:"yellow",b2:"+15% Status Effects",b3:"+25% Skill Damage",b4:"Return to Sender \u2014 Receive repairs of 10% of damage dealt by your Skills. Allies receive repairs of 20% of damage dealt by your Skills.",chest:"Increased Interest \u2014 Increases repairs from 10% to 25% (you) and 20% to 35% (allies).",bp:"Over-engineered \u2014 At full Armor, repairs from Return to Sender provide Bonus Armor up to 80% of Total Armor."},
+{name:"Rigger",file:"rigger",type:"yellow",b2:"+15% Skill Haste",b3:"+15% Skill Duration",b4:"Tend and Befriend \u2014 Interacting with deployed skills grants them 25% skill damage for 10s (cannot be refreshed). Interactions: deploying, changing target, or healing the skill.",chest:"Best Buds \u2014 Increases damage buff from 25% to 50%.",bp:"Complete Uptime \u2014 Cancelling your skills resets their cooldown."},
+{name:"Striker's Battlegear",file:"strikersbattlegear",type:"red",b2:"+15% Weapon Handling",b3:"+15% Rate of Fire",b4:"Striker's Gamble \u2014 Weapon hits increase total weapon damage by 0.65%, stacking up to 100 times. 1 stack lost/s between 0\u201350 stacks. 2 stacks lost/s between 50\u2013100 stacks.",chest:"Press the Advantage \u2014 Increases max stacks from 100 to 200. 3 stacks lost/s between 100\u2013200.",bp:"Risk Management \u2014 Increases weapon damage per stack from 0.65% to 1%."},
+{name:"System Corruption",file:"systemcorruption",type:"red",b2:"+15% Armor on Kill",b3:"+40% Disrupt Resistance & +40% Pulse Resistance",b4:"Hackstep Protocol \u2014 Replaces armor kits with an instant infinite-use ability (20s cooldown): repairs 20% armor, grants 50% bonus armor, hides nameplate for 5s. +2% weapon damage per 5% bonus armor gained (max 20%).",chest:"Compiler Optimization \u2014 Decreases Hackstep Protocol cooldown from 20s to 15s.",bp:"Multithreaded Execution \u2014 Increases Hackstep Protocol bonus armor from 50% to 100%."},
+{name:"Tip of the Spear",file:"tipofthespear",type:"red",b2:"+20% Signature Weapon Damage",b3:"+10% Weapon Damage",b4:"Aggressive Recon \u2014 Signature Weapon kill: +15% Sig Weapon Damage for 10s & +25% Reload Speed for next reload. Auto-regenerate Sig Weapon Ammo every 60s.",chest:"Specialized Destruction \u2014 Increases Aggressive Recon bonus from 15% to 30%. Every 3rd Sig Weapon kill generates ammo.",bp:"Signature Moves \u2014 +50% Weapon Damage for 15s after fully depleting Sig Weapon ammo. Doubles ammo generated by Aggressive Recon."},
+{name:"Tipping Scales",file:"tippingscales",type:"red",b2:"+30% Magazine Size",b3:"+30% LMG Damage",b4:"Throttle Control \u2014 Shooting builds stacks (max 50). Each stack: +0.5% Weapon Handling & +4% Critical Hit Damage. Lose 6 stacks/s while not shooting. No stacks lost while enemy is Suppressed.",chest:"Sustainability \u2014 Increases max stacks from 50 to 75.",bp:"Snowball \u2014 Increases Critical Hit Damage per stack from 4% to 7%."},
+{name:"True Patriot",file:"truepatriot",type:"blue",b2:"+30% Ammo Capacity",b3:"+30% Magazine Size",b4:"Red, White and Blue \u2014 Every 2s, enemies you shoot receive stacking debuffs: Red (+8% damage taken), White (2% armor repair/s), Blue (-8% enemy damage dealt). Full Flag: enemies with all 3 debuffs explode on death dealing damage equal to their total health and armor.",chest:"Waving the Flag \u2014 Increases rotation speed from 2s to 1.5s.",bp:"Patriotic Boost \u2014 Red: 8\u219212%, White: 2\u21923%, Blue: 8\u219212%."},
+{name:"Umbra Initiative",file:"umbrainitiative",type:"red",b2:"+15% Critical Hit Chance",b3:"+30% Reload Speed",b4:"From the Shadows / Into the Light \u2014 In cover: gain 10 stacks/s (max 50), each giving +1% Crit Damage and +0.3% RPM. Out of cover: gain 10 stacks/s (max 50) for armor regen when consumed (10 stacks/s in cover).",chest:"From the Shadows \u2014 Increases max stacks to 100 and stack gain from 10 to 20.",bp:"Into the Light \u2014 Increases max stacks to 100, gain to 20, consumption to 20."},
+{name:"Virtuoso",file:"virtuoso",type:"red",b2:"+15% Weapon Handling & +15% Magazine Size",b3:"+15% Weapon Damage",b4:"Symphony \u2014 Kills >25m: +40% Shotgun/SMG/Pistol Damage, +20% AR/LMG Damage, +25% Bonus Armor for 15s. Kills <25m: +40% MMR/Rifle Damage, +20% AR/LMG Damage, +30% Headshot Damage for 15s. Alternating kills build stacks; at 4 stacks all bonuses are multiplied by 1.5.",chest:"Fortissimo \u2014 Doubles Symphony Weapon Damage bonuses.",bp:"Accelerando \u2014 Decreases stacks needed for Symphony double buffs from 4 to 3."}
+];
+var gearsetSearch='',brandSearch='';
+var ALL_LOCS=[{name:'The Art Museum',type:'mission',district:'West End'},{name:'Manning National Zoo',type:'stronghold',district:'Northeast'},{name:'Camp White Oak',type:'mission',district:'Camp White Oak'},{name:'The Pentagon',type:'stronghold',district:'Pentagon'},{name:'DARPA Research Labs',type:'mission',district:'Southwest'},{name:'Potomac Event Center',type:'mission',district:'Upper Northwest'},{name:'Grand Washington Hotel',type:'mission',district:'West End'},{name:'Jefferson Trade Center',type:'mission',district:'Constitution Hall'},{name:'Bank Headquarters',type:'mission',district:'Downtown West'},{name:'ViewPoint Museum',type:'mission',district:'Downtown East'},{name:'American History Museum',type:'mission',district:'Federal Triangle'},{name:'DCD Headquarters',type:'mission',district:'Penn Quarter'},{name:'Lincoln Memorial',type:'mission',district:'West Potomac Park'},{name:'Air & Space Museum',type:'mission',district:'East Mall'},{name:'Federal Emergency Bunker',type:'mission',district:'Southwest'},{name:'Space Administration HQ',type:'mission',district:'Downtown West'},{name:'Jefferson Plaza',type:'mission',district:'Northeast'},{name:'Roosevelt Island',type:'stronghold',district:'Roosevelt Island'},{name:'District Union Arena',type:'stronghold',district:'Downtown East'},{name:'Capitol Building',type:'stronghold',district:'Capitol Hill'},{name:'Tidal Basin',type:'stronghold',district:'Tidal Basin'},{name:'Stranded Tanker',type:'mission',district:'Two Bridges'}];
 var TIERS=[{lb:'Free',cost:0,prof:2,drop:0,tgt:0,cls:'t-free',mut:[]},{lb:'T-1',cost:1,prof:3,drop:0.2,tgt:5,cls:'t-low',mut:['Harvester']},{lb:'T-2',cost:3,prof:6,drop:0.4,tgt:11,cls:'t-low',mut:['Harvester','Unyielding']},{lb:'T-3',cost:7,prof:10,drop:0.6,tgt:16,cls:'t-low',mut:['Harvester','Unyielding','Suppressor']},{lb:'T-4',cost:12,prof:16,drop:0.6,tgt:22,cls:'t-mid',mut:['Harvester','Unyielding','Suppressor']},{lb:'T-5',cost:20,prof:24,drop:0.8,tgt:28,cls:'t-mid',mut:['Harvester','Unyielding','Suppressor','Anchor']},{lb:'T-6',cost:29,prof:34,drop:1.25,tgt:39,cls:'t-mid',mut:['Harvester','Unyielding','Suppressor','Anchor','Hot Foot']},{lb:'T-7',cost:41,prof:46,drop:1.5,tgt:45,cls:'t-hi',mut:['Harvester','Unyielding','Suppressor','Anchor','Hot Foot','Aid Specialist']},{lb:'T-8',cost:54,prof:60,drop:2.0,tgt:50,cls:'t-hi',mut:['Harvester','Unyielding','Suppressor','Anchor','Hot Foot','Aid Specialist']},{lb:'T-9',cost:70,prof:76,drop:2.5,tgt:56,cls:'t-hi',mut:['Harvester','Unyielding','Suppressor','Anchor','Hot Foot','Aid Specialist']},{lb:'T-10',cost:87,prof:94,drop:3.0,tgt:62,cls:'t-hi',mut:['Harvester','Unyielding','Suppressor','Anchor','Hot Foot','Aid Specialist']}];
 var MUTATORS=[{n:'Harvester',d:'When dealing damage, this enemy regenerates Armor and Health by a percentage of your maximum Armor. Can overheal.',starts:'T-1+',global:false},{n:'Unyielding',d:'All enemies become immune to crowd control effects while significantly damaged.',starts:'T-2+',global:true},{n:'Suppressor',d:'When damaged, this enemy starts to charge an EMP blast. When fully charged, he unleashes it, disrupting everything in the area.',starts:'T-3+',global:false},{n:'Anchor',d:'This enemy has damage resistance and fires incendiary ammo as long as he has any allies around him.',starts:'T-5+',global:false},{n:'Hot Foot',d:'If you stay in the same spot for too long, a charge counter begins to fill. When it reaches maximum, you are Shocked and take damage.',starts:'T-6+',global:true},{n:'Aid Specialist',d:'This enemy periodically Repairs the Armor of all allies around him, if they are badly damaged.',starts:'T-7+',global:false}];
 var DEFAULT=[{slot:1,name:'The Art Museum',daily_loot:'Alps Summit Armament'},{slot:2,name:'Manning National Zoo',daily_loot:'Chameleon'},{slot:3,name:'Camp White Oak',daily_loot:'Merciless'},{slot:4,name:'The Pentagon',daily_loot:'Liberty'},{slot:5,name:'DARPA Research Labs',daily_loot:'Dodge City Holster'}];
-
 var missions=DEFAULT.map(function(m){return Object.assign({},m);});
 var syncStatus='loading',editing=null,awaitingPw=null,pwError=false;
 var tab='missions',selectedTier=null,isAdmin=false,saveMsg={};
@@ -235,91 +264,63 @@ var tab='missions',selectedTier=null,isAdmin=false,saveMsg={};
 async function loadFromDB(){try{var res=await sb().from('missions').select('*').order('slot');if(res.error)throw res.error;if(res.data&&res.data.length===5){missions=res.data;syncStatus='ok';}else{await seedDB();}}catch(e){console.error('Load:',e);syncStatus='error';}render();}
 async function seedDB(){try{var res=await sb().from('missions').upsert(DEFAULT,{onConflict:'slot'});if(res.error)throw res.error;missions=DEFAULT.map(function(m){return Object.assign({},m);});syncStatus='ok';}catch(e){console.error('Seed:',e);syncStatus='error';}}
 async function saveMission(i,name,dailyLoot){saveMsg[i]='saving';render();try{var row={slot:i+1,name:name,daily_loot:dailyLoot};var res=await sb().from('missions').upsert(row,{onConflict:'slot'});if(res.error)throw res.error;missions[i]=row;saveMsg[i]='saved';editing=null;render();setTimeout(function(){delete saveMsg[i];render();},2500);}catch(e){console.error('Save:',e);saveMsg[i]='error';render();}}
-
 function getChicagoOffset(d){var utc=d.getTime();var chi=new Date(d.toLocaleString('en-US',{timeZone:'America/Chicago'})).getTime();return utc-chi;}
 function getNext3amChicago(){var now=new Date();var off=getChicagoOffset(now);var chiNow=new Date(now.getTime()-off);var reset=new Date(chiNow);reset.setHours(3,0,0,0);if(chiNow>=reset)reset.setDate(reset.getDate()+1);return new Date(reset.getTime()+getChicagoOffset(reset));}
 function getNextTuesday3amChicago(){var now=new Date();var off=getChicagoOffset(now);var chiNow=new Date(now.getTime()-off);var day=chiNow.getDay();var dtu=(2-day+7)%7;var reset=new Date(chiNow);reset.setDate(chiNow.getDate()+dtu);reset.setHours(3,0,0,0);if(dtu===0&&chiNow>=reset)reset.setDate(reset.getDate()+7);return new Date(reset.getTime()+getChicagoOffset(reset));}
 function fmtHMS(ms){if(ms<=0)return'00:00:00';var h=Math.floor(ms/3600000),m=Math.floor((ms%3600000)/60000),s=Math.floor((ms%60000)/1000);return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');}
 function fmtWeekly(ms){var d=Math.floor(ms/86400000),h=Math.floor((ms%86400000)/3600000);return d>0?d+'d '+h+'h':h+'h';}
+function colorizeBonusText(text){var blue=['Armor Regeneration','Total Armor','Armor on Kill','Armor Regen','Incoming Repairs','Extra Incoming Repairs','Hazard Protection','Explosive Resistance','Pulse Resistance','Shock Resistance','Health','Armor'];var red=['Shotgun Damage','Headshot Damage','Marksman Rifle Damage','Damage to Armor','Critical Hit Chance','Increased Threat','Pistol Damage','SMG Damage','Assault Rifle Damage','Reload Speed','Stability','Critical Hit Damage','Weapon Damage','Optimal Range','Swap Speed','LMG Damage','Rifle Damage','Weapon Handling','Ammo Capacity','Magazine Size','Accuracy','Damage to Health','Rate of Fire'];var yellow=['Repair Skills','Skill Repair','Skill Duration','Skill Haste','Skill Tier','Status Effects','Explosive Damage','Skill Health','Skill Efficiency','Skill Damage'];var all=[];blue.forEach(function(k){all.push({k:k,cls:'bk-blue'});});red.forEach(function(k){all.push({k:k,cls:'bk-red'});});yellow.forEach(function(k){all.push({k:k,cls:'bk-yellow'});});all.sort(function(a,b){return b.k.length-a.k.length;});var result=text;var placeholders={};var idx=0;all.forEach(function(item){var re=new RegExp(item.k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g');result=result.replace(re,function(match){var ph='__PH'+(idx++)+'__';placeholders[ph]='<span class="'+item.cls+'">'+match+'</span>';return ph;});});Object.keys(placeholders).forEach(function(ph){result=result.replace(ph,placeholders[ph]);});return result;}
 
-
-
-function colorizeBonusText(text){
-  var blue=['Armor Regeneration','Total Armor','Armor on Kill','Armor Regen','Incoming Repairs','Extra Incoming Repairs','Hazard Protection','Explosive Resistance','Pulse Resistance','Shock Resistance','Health','Armor'];
-  var red=['Shotgun Damage','Headshot Damage','Marksman Rifle Damage','Damage to Armor','Critical Hit Chance','Increased Threat','Pistol Damage','SMG Damage','Assault Rifle Damage','Reload Speed','Stability','Critical Hit Damage','Weapon Damage','Optimal Range','Swap Speed','LMG Damage','Rifle Damage','Weapon Handling','Ammo Capacity','Magazine Size','Accuracy','Damage to Health','Rate of Fire'];
-  var yellow=['Repair Skills','Skill Repair','Skill Duration','Skill Haste','Skill Tier','Status Effects','Explosive Damage','Skill Health','Skill Efficiency','Skill Damage'];
-  // Sort by length descending so longer matches take priority
-  var all=[];
-  blue.forEach(function(k){all.push({k:k,cls:'bk-blue'});});
-  red.forEach(function(k){all.push({k:k,cls:'bk-red'});});
-  yellow.forEach(function(k){all.push({k:k,cls:'bk-yellow'});});
-  all.sort(function(a,b){return b.k.length-a.k.length;});
-  // Use placeholder approach to avoid double-replacing
-  var result=text;
-  var placeholders={};
-  var idx=0;
-  all.forEach(function(item){
-    var re=new RegExp(item.k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g');
-    result=result.replace(re,function(match){
-      var ph='__PH'+(idx++)+'__';
-      placeholders[ph]='<span class="'+item.cls+'">'+match+'</span>';
-      return ph;
-    });
-  });
-  Object.keys(placeholders).forEach(function(ph){
-    result=result.replace(ph,placeholders[ph]);
-  });
-  return result;
+/* UPDATED: Helper to get type-based pip class for 2-piece and 3-piece */
+function getGearPipClass(type,pieceNum){
+  if(type==='red') return pieceNum===2?'go2':'go3';
+  if(type==='yellow') return pieceNum===2?'gs2':'gs3';
+  return pieceNum===2?'gd2':'gd3';
 }
-function renderBrandGrid(){
-  var filtered=BRANDS.filter(function(b){
-    return !brandSearch||b.name.toLowerCase().indexOf(brandSearch.toLowerCase())!==-1;
-    var bonuses=(b.b1+' '+b.b2+' '+b.b3).toLowerCase();
-  });
-  var grid=document.getElementById('brand-grid');
-  var count=document.getElementById('brand-count');
-  if(!grid)return;
-  var h='';
-  filtered.forEach(function(b){
-    var url=GITHUB_RAW+b.file+'.png';
-    var initials=b.name.replace(/[^a-zA-Z ]/g,'').trim().split(' ').slice(0,2).map(function(w){return w[0]||'';}).join('').toUpperCase();
-    h+='<div class="brand-card">'
-      +'<div class="brand-card-top">'
-      +'<img class="brand-icon" src="'+url+'" alt="'+b.name+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"/>'
-      +'<div class="brand-icon-fallback" style="display:none">'+initials+'</div>'
-      +'<div class="brand-name">'+b.name+'</div>'
-      +'</div>'
-      +'<div class="brand-bonuses">'
-      +'<div class="brand-bonus"><div class="bonus-pip p1">1</div><div class="bonus-text">'+colorizeBonusText(b.b1)+'</div></div>'
-      +'<div class="brand-bonus"><div class="bonus-pip p2">2</div><div class="bonus-text">'+colorizeBonusText(b.b2)+'</div></div>'
-      +'<div class="brand-bonus"><div class="bonus-pip p3">3</div><div class="bonus-text">'+colorizeBonusText(b.b3)+'</div></div>'
-      +'</div></div>';
-  });
-  if(filtered.length===0)h='<p class="note" style="text-align:center;margin-top:2rem">No brand sets match your search.</p>';
-  grid.innerHTML=h;
-  if(count)count.textContent=filtered.length+' / '+BRANDS.length;
+
+/* UPDATED: Build a single gear set card with type-colored pips and icon for 4-piece */
+function buildGearsetCard(g){
+  var url=GITHUB_RAW+g.file+'.png';
+  var initials=g.name.replace(/[^a-zA-Z ]/g,'').trim().split(' ').slice(0,2).map(function(w){return w[0]||'';}).join('').toUpperCase();
+  var typeLabel=g.type==='red'?'Offense':g.type==='yellow'?'Skill':'Defense';
+  var typeCls=g.type==='red'?'gtype-red':g.type==='yellow'?'gtype-yellow':'gtype-blue';
+  var p2cls=getGearPipClass(g.type,2);
+  var p3cls=getGearPipClass(g.type,3);
+  var talentName=g.b4.indexOf('\u2014')!==-1?g.b4.split('\u2014')[0].trim():g.b4.split('—')[0].trim();
+  var talentDesc=g.b4.indexOf('\u2014')!==-1?g.b4.split('\u2014').slice(1).join('\u2014').trim():g.b4.split('—').slice(1).join('—').trim();
+  return '<div class="gearset-card">'
+    +'<div class="gearset-card-top">'
+    +'<img class="gearset-icon" src="'+url+'" alt="'+g.name+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"/>'
+    +'<div class="gearset-icon-fallback" style="display:none">'+initials+'</div>'
+    +'<div class="gearset-name">'+g.name+'</div>'
+    +'<span class="gearset-type '+typeCls+'">'+typeLabel+'</span>'
+    +'</div>'
+    +'<div class="gearset-bonuses">'
+    +'<div class="gearset-bonus"><div class="gpip '+p2cls+'">2</div><div class="gearset-bonus-text">'+g.b2+'</div></div>'
+    +'<div class="gearset-bonus"><div class="gpip '+p3cls+'">3</div><div class="gearset-bonus-text">'+g.b3+'</div></div>'
+    +'<div class="gearset-bonus">'
+      +'<div class="gpip g4-icon"><img src="'+url+'" alt="" style="width:14px;height:14px;object-fit:contain;filter:drop-shadow(0 0 3px rgba(78,240,216,0.7))" onerror="this.parentNode.innerHTML=\'4\'"/></div>'
+      +'<div class="gearset-bonus-text"><span class="gearset-talent-name">'+talentName+'</span>'+(talentDesc?' \u2014 '+talentDesc:'')+'</div>'
+    +'</div>'
+    +'<div class="gearset-bonus"><div class="gpip gchest"><img src="'+GITHUB_RAW+'chest.png" alt="Chest" style="width:14px;height:14px;object-fit:contain" onerror="this.parentNode.innerHTML=\'&#x25A1;\'"/></div><div class="gearset-bonus-text"><span class="gearset-chest-label">Chestpiece: </span>'+g.chest+'</div></div>'
+    +'<div class="gearset-bonus"><div class="gpip gbp"><img src="'+GITHUB_RAW+'backpack.png" alt="Backpack" style="width:14px;height:14px;object-fit:contain" onerror="this.parentNode.innerHTML=\'&#x25C6;\'"/></div><div class="gearset-bonus-text"><span class="gearset-bp-label">Backpack: </span>'+g.bp+'</div></div>'
+    +'</div>'
+    +'</div>';
 }
+
+function renderGearsetGrid(){var filtered=GEARSETS.filter(function(g){return!gearsetSearch||g.name.toLowerCase().indexOf(gearsetSearch.toLowerCase())!==-1;});var grid=document.getElementById('gearset-grid');var count=document.getElementById('gearset-count');if(!grid)return;if(count)count.textContent=filtered.length+' / '+GEARSETS.length;var h='';filtered.forEach(function(g){h+=buildGearsetCard(g);});if(filtered.length===0)h='<p class="note" style="text-align:center;margin-top:2rem">No gear sets match your search.</p>';grid.innerHTML=h;}
+function renderBrandGrid(){var filtered=BRANDS.filter(function(b){return !brandSearch||b.name.toLowerCase().indexOf(brandSearch.toLowerCase())!==-1;});var grid=document.getElementById('brand-grid');var count=document.getElementById('brand-count');if(!grid)return;var h='';filtered.forEach(function(b){var url=GITHUB_RAW+b.file+'.png';var initials=b.name.replace(/[^a-zA-Z ]/g,'').trim().split(' ').slice(0,2).map(function(w){return w[0]||'';}).join('').toUpperCase();h+='<div class="brand-card"><div class="brand-card-top"><img class="brand-icon" src="'+url+'" alt="'+b.name+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"/><div class="brand-icon-fallback" style="display:none">'+initials+'</div><div class="brand-name">'+b.name+'</div></div><div class="brand-bonuses"><div class="brand-bonus"><div class="bonus-pip p1">1</div><div class="bonus-text">'+colorizeBonusText(b.b1)+'</div></div><div class="brand-bonus"><div class="bonus-pip p2">2</div><div class="bonus-text">'+colorizeBonusText(b.b2)+'</div></div><div class="brand-bonus"><div class="bonus-pip p3">3</div><div class="bonus-text">'+colorizeBonusText(b.b3)+'</div></div></div></div>';});if(filtered.length===0)h='<p class="note" style="text-align:center;margin-top:2rem">No brand sets match your search.</p>';grid.innerHTML=h;if(count)count.textContent=filtered.length+' / '+BRANDS.length;}
+
 function render(){
   var now=new Date(),dailyMs=getNext3amChicago()-now,weeklyMs=getNextTuesday3amChicago()-now;
   var syncLabel=syncStatus==='loading'?'Connecting to database...':syncStatus==='ok'?'Live &mdash; Supabase connected':'Database error &mdash; check credentials in the HTML file';
   var dotCls=syncStatus==='loading'?'loading':syncStatus==='ok'?'ok':'err';
-  var h='<div class="topbar"><div class="topbar-left">'+'<img src="'+GITHUB_RAW+'Division2.png" alt="Division 2" style="width:57px;height:57px;max-width:57px;max-height:57px;object-fit:contain;display:block;flex-shrink:0"/>'+'<div class="topbar-titles"><h1>DIVISION 2</h1><p>Y8S1 Rise Up &nbsp;&middot;&nbsp; Cherry Blossom Event</p></div></div><div class="topbar-right"><div class="weekly-pill">Weekly reset &nbsp;<b>'+fmtWeekly(weeklyMs)+'</b></div><div class="timer-block"><div class="timer-label">Daily Loot Resets</div><div class="timer-val" id="dtimer">'+fmtHMS(dailyMs)+'</div></div></div></div>'
-    +'<div class="sync-bar"><div class="sync-dot '+dotCls+'"></div>'+syncLabel+'</div>'
-    +'<div class="tabs"><button class="tab'+(tab==='missions'?' on':'')+'" onclick="setTab(\'missions\')">Escalation</button><button class="tab'+(tab==='tiers'?' on':'')+'" onclick="setTab(\'tiers\')">Tiers &amp; Mutators</button><button class="tab'+(tab==='brands'?' on':'')+'" onclick="setTab(\'brands\')">Brand Sets</button></div>';
-
+  var h='<div class="topbar"><div class="topbar-left"><img src="'+GITHUB_RAW+'Division2.png" alt="Division 2" style="width:57px;height:57px;max-width:57px;max-height:57px;object-fit:contain;display:block;flex-shrink:0"/><div class="topbar-titles"><h1>DIVISION 2</h1><p>Y8S1 Rise Up &nbsp;&middot;&nbsp; Cherry Blossom Event</p></div></div><div class="topbar-right"><div class="weekly-pill">Weekly reset &nbsp;<b>'+fmtWeekly(weeklyMs)+'</b></div><div class="timer-block"><div class="timer-label">Daily Loot Resets</div><div class="timer-val" id="dtimer">'+fmtHMS(dailyMs)+'</div></div></div></div><div class="sync-bar"><div class="sync-dot '+dotCls+'"></div>'+syncLabel+'</div><div class="tabs"><button class="tab'+(tab==='missions'?' on':'')+'" onclick="setTab(\'missions\')">Escalation</button><button class="tab'+(tab==='tiers'?' on':'')+'" onclick="setTab(\'tiers\')">Tiers &amp; Mutators</button><button class="tab'+(tab==='brands'?' on':'')+'" onclick="setTab(\'brands\')">Brand Sets</button><button class="tab'+(tab==='gearsets'?' on':'')+'" onclick="setTab(\'gearsets\')">Gear Sets</button></div>';
   if(tab==='missions'){
     h+='<div class="mission-list">';
-    missions.forEach(function(m,i){
-      var loc=ALL_LOCS.find(function(l){return l.name===m.name;})||{type:'mission',district:'Unknown'};
-      var isSH=loc.type==='stronghold',isEdit=editing===i,isPw=awaitingPw===i,sm=saveMsg[i];
-      h+='<div class="mrow '+(isSH?'stronghold-row':'mission-row')+'"><div class="mrow-inner"><div class="mrow-num">'+(i+1)+'</div><div class="mrow-icon">'+(isSH?strongholdSVG(36,'#4ef0d8'):hexSVG(26,'rgba(55,138,221,0.85)'))+'</div><div class="mrow-info"><div class="mrow-name">'+m.name+'</div><div class="mrow-badges"><span class="badge-type '+(isSH?'badge-stronghold':'badge-mission')+'">'+(isSH?'Stronghold':'Mission')+'</span><span class="badge-district">'+loc.district+'</span></div></div><div class="mrow-loot"><div class="mrow-loot-label">Today\'s Targeted Loot</div><div class="mrow-loot-item">'+(m.daily_loot||'&mdash;')+'</div>'+(sm?'<div class="save-msg '+sm+'">'+(sm==='saving'?'Saving...':sm==='saved'?'&#x2713; Saved':'&#x26A0; Save failed')+'</div>':'')+'<div class="mrow-loot-footer"><button class="btn-edit-sm'+(isEdit||isPw?' active':'')+'" onclick="tryEdit('+i+')">'+(isEdit?'&#x2715; Close':isPw?'&#x1F512; Unlock':'&#x1F512; Edit')+'</button></div></div></div>';
-      if(isPw){h+='<div class="edit-area"><div class="pw-overlay"><h4>Admin Access Required</h4><div class="erow"><label>Password</label><input type="password" id="pw'+i+'" placeholder="Enter password" onkeydown="if(event.key===\'Enter\')checkPw('+i+')" />'+(pwError?'<div class="pw-error">Incorrect password &mdash; try again</div>':'')+'</div><div class="btn-row"><button class="bsave" onclick="checkPw('+i+')">Unlock</button><button class="bcancel" onclick="cancelEdit()">Cancel</button></div></div></div>';}
-      if(isEdit){var opts=ALL_LOCS.map(function(l){return'<option value="'+l.name+'"'+(l.name===m.name?' selected':'')+'>'+l.name+' ('+(l.type==='stronghold'?'Stronghold':'Mission')+')</option>';}).join('');h+='<div class="edit-area"><div class="erow"><label>Mission / Stronghold</label><select id="en'+i+'">'+opts+'</select></div><div class="erow"><label>Today\'s Daily Targeted Loot</label><input id="edaily'+i+'" value="'+(m.daily_loot||'')+'" placeholder="Item name"/></div><div class="btn-row"><button class="bsave" onclick="doSave('+i+')">Save to Database</button><button class="bcancel" onclick="cancelEdit()">Cancel</button></div></div>';}
-      h+='</div>';
-    });
+    missions.forEach(function(m,i){var loc=ALL_LOCS.find(function(l){return l.name===m.name;})||{type:'mission',district:'Unknown'};var isSH=loc.type==='stronghold',isEdit=editing===i,isPw=awaitingPw===i,sm=saveMsg[i];h+='<div class="mrow '+(isSH?'stronghold-row':'mission-row')+'"><div class="mrow-inner"><div class="mrow-num">'+(i+1)+'</div><div class="mrow-icon">'+(isSH?strongholdSVG(36,'#4ef0d8'):hexSVG(26,'rgba(55,138,221,0.85)'))+'</div><div class="mrow-info"><div class="mrow-name">'+m.name+'</div><div class="mrow-badges"><span class="badge-type '+(isSH?'badge-stronghold':'badge-mission')+'">'+(isSH?'Stronghold':'Mission')+'</span><span class="badge-district">'+loc.district+'</span></div></div><div class="mrow-loot"><div class="mrow-loot-label">Today\'s Targeted Loot</div><div class="mrow-loot-item">'+(m.daily_loot||'&mdash;')+'</div>'+(sm?'<div class="save-msg '+sm+'">'+(sm==='saving'?'Saving...':sm==='saved'?'&#x2713; Saved':'&#x26A0; Save failed')+'</div>':'')+'<div class="mrow-loot-footer"><button class="btn-edit-sm'+(isEdit||isPw?' active':'')+'" onclick="tryEdit('+i+')">'+(isEdit?'&#x2715; Close':isPw?'&#x1F512; Unlock':'&#x1F512; Edit')+'</button></div></div></div>';if(isPw){h+='<div class="edit-area"><div class="pw-overlay"><h4>Admin Access Required</h4><div class="erow"><label>Password</label><input type="password" id="pw'+i+'" placeholder="Enter password" onkeydown="if(event.key===\'Enter\')checkPw('+i+')" />'+(pwError?'<div class="pw-error">Incorrect password &mdash; try again</div>':'')+'</div><div class="btn-row"><button class="bsave" onclick="checkPw('+i+')">Unlock</button><button class="bcancel" onclick="cancelEdit()">Cancel</button></div></div></div>';}if(isEdit){var opts=ALL_LOCS.map(function(l){return'<option value="'+l.name+'"'+(l.name===m.name?' selected':'')+'>'+l.name+' ('+(l.type==='stronghold'?'Stronghold':'Mission')+')</option>';}).join('');h+='<div class="edit-area"><div class="erow"><label>Mission / Stronghold</label><select id="en'+i+'">'+opts+'</select></div><div class="erow"><label>Today\'s Daily Targeted Loot</label><input id="edaily'+i+'" value="'+(m.daily_loot||'')+'" placeholder="Item name"/></div><div class="btn-row"><button class="bsave" onclick="doSave('+i+')">Save to Database</button><button class="bcancel" onclick="cancelEdit()">Cancel</button></div></div>';}h+='</div>';});
     h+='</div><p class="note">Saves go to Supabase instantly &mdash; all visitors see changes in real time &nbsp;&middot;&nbsp; Resets 3:00 AM CST &nbsp;&middot;&nbsp; Missions rotate Tuesday</p>';
   }
-
   if(tab==='tiers'){
     var sT=selectedTier!==null?TIERS[selectedTier]:null,aM=sT?sT.mut:[],eM=MUTATORS.filter(function(m){return!m.global;}),gM=MUTATORS.filter(function(m){return m.global;});
     h+='<div class="tier-layout"><div><div class="section-label">Select a Tier</div><div class="tier-thead"><span>Tier</span><span>Cost</span><span>Net</span><span>Drops</span></div><div class="tier-rows">';
@@ -329,37 +330,24 @@ function render(){
     else{h+='<div class="mut-panel-title">'+(sT.lb==='Free'?'Free Tier':sT.lb)+' &mdash; '+aM.length+' Active</div><div class="mut-panel-sub">'+(aM.length===0?'No mutators at this tier':'Highlighted mutators are live this run')+'</div><div class="mut-section-hdr">Enemy Mutators</div><div class="mut-list">';eM.forEach(function(mu){var a=aM.indexOf(mu.n)!==-1;h+='<div class="mut-item '+(a?'active':'inactive')+'"><div class="mut-item-name">'+mu.n+'</div><div class="mut-item-desc">'+mu.d+'</div><div class="mut-item-tier">'+mu.starts+'</div></div>';});h+='</div><div class="mut-section-hdr">Global Mutators</div><div class="mut-list">';gM.forEach(function(mu){var a=aM.indexOf(mu.n)!==-1;h+='<div class="mut-item '+(a?'active':'inactive')+'"><div class="mut-item-name">'+mu.n+'</div><div class="mut-item-desc">'+mu.d+'</div><div class="mut-item-tier">'+mu.starts+'</div></div>';});h+='</div>';}
     h+='</div></div></div><p class="note">Prototype % = per-enemy drop chance &nbsp;&middot;&nbsp; Targeted Loot % = loot allocation increase per tier</p>';
   }
-
   if(tab==='brands'){
-    var filtered=BRANDS.filter(function(b){
-    return !brandSearch||b.name.toLowerCase().indexOf(brandSearch.toLowerCase())!==-1;
-    var bonuses=(b.b1+' '+b.b2+' '+b.b3).toLowerCase();
-  });
+    var filtered=BRANDS.filter(function(b){return !brandSearch||b.name.toLowerCase().indexOf(brandSearch.toLowerCase())!==-1;});
     h+='<div class="brand-search-wrap"><input class="brand-search" id="bsi" placeholder="Search brand sets..." value="'+brandSearch+'" oninput="brandSearch=this.value;renderBrandGrid()"/><span class="brand-count" id="brand-count">'+filtered.length+' / '+BRANDS.length+'</span></div><div class="brand-grid" id="brand-grid">';
-    filtered.forEach(function(b){
-      var url=GITHUB_RAW+b.file+'.png';
-      var initials=b.name.replace(/[^a-zA-Z ]/g,'').trim().split(' ').slice(0,2).map(function(w){return w[0]||'';}).join('').toUpperCase();
-      h+='<div class="brand-card">'
-        +'<div class="brand-card-top">'
-        +'<img class="brand-icon" src="'+url+'" alt="'+b.name+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"/>'
-        +'<div class="brand-icon-fallback" style="display:none">'+initials+'</div>'
-        +'<div class="brand-name">'+b.name+'</div>'
-        +'</div>'
-        +'<div class="brand-bonuses">'
-        +'<div class="brand-bonus"><div class="bonus-pip p1">1</div><div class="bonus-text">'+colorizeBonusText(b.b1)+'</div></div>'
-        +'<div class="brand-bonus"><div class="bonus-pip p2">2</div><div class="bonus-text">'+colorizeBonusText(b.b2)+'</div></div>'
-        +'<div class="brand-bonus"><div class="bonus-pip p3">3</div><div class="bonus-text">'+colorizeBonusText(b.b3)+'</div></div>'
-        +'</div></div>';
-    });
+    filtered.forEach(function(b){var url=GITHUB_RAW+b.file+'.png';var initials=b.name.replace(/[^a-zA-Z ]/g,'').trim().split(' ').slice(0,2).map(function(w){return w[0]||'';}).join('').toUpperCase();h+='<div class="brand-card"><div class="brand-card-top"><img class="brand-icon" src="'+url+'" alt="'+b.name+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"/><div class="brand-icon-fallback" style="display:none">'+initials+'</div><div class="brand-name">'+b.name+'</div></div><div class="brand-bonuses"><div class="brand-bonus"><div class="bonus-pip p1">1</div><div class="bonus-text">'+colorizeBonusText(b.b1)+'</div></div><div class="brand-bonus"><div class="bonus-pip p2">2</div><div class="bonus-text">'+colorizeBonusText(b.b2)+'</div></div><div class="brand-bonus"><div class="bonus-pip p3">3</div><div class="bonus-text">'+colorizeBonusText(b.b3)+'</div></div></div></div>';});
     h+='</div>';
     if(filtered.length===0)h+='<p class="note" style="text-align:center;margin-top:2rem">No brand sets match your search.</p>';
   }
-
+  if(tab==='gearsets'){
+    var gsFilt=GEARSETS.filter(function(g){return!gearsetSearch||g.name.toLowerCase().indexOf(gearsetSearch.toLowerCase())!==-1;});
+    h+='<div class="gearset-search-wrap"><input class="gearset-search" id="gssi" placeholder="Search gear sets..." value="'+gearsetSearch+'" oninput="gearsetSearch=this.value;renderGearsetGrid()"/><span class="gearset-count" id="gearset-count">'+gsFilt.length+' / '+GEARSETS.length+'</span></div>';
+    h+='<div class="gearset-grid" id="gearset-grid">';
+    gsFilt.forEach(function(g){h+=buildGearsetCard(g);});
+    h+='</div>';
+    if(gsFilt.length===0)h+='<p class="note" style="text-align:center;margin-top:2rem">No gear sets match your search.</p>';
+  }
   document.getElementById('root').innerHTML=h;
   startTimer();
-
 }
-
 var timerRef=null;
 function startTimer(){if(timerRef)clearInterval(timerRef);timerRef=setInterval(function(){var el=document.getElementById('dtimer');if(!el){clearInterval(timerRef);return;}el.textContent=fmtHMS(Math.max(0,getNext3amChicago()-new Date()));},1000);}
 function setTab(t){tab=t;editing=null;awaitingPw=null;pwError=false;render();}
